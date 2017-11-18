@@ -4,6 +4,7 @@ from time import sleep
 from random import randint
 
 fotoknop = Button(23) <-- Verander waar je de button hebt ingeplugd
+fotoknop.when_pressed = foto
 camera = picamera.PiCamera()
 camera.resolution = (400, 800)
 camera.vflip = True
@@ -18,4 +19,3 @@ def foto():
         camera.stop_preview()
         sleep(1)
     
-fotoknop.when_pressed = foto
