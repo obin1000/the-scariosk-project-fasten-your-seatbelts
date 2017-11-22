@@ -1,21 +1,21 @@
-import picamera
-from gpiozero import Button
-from time import sleep
-from random import randint
+import picamera #import benodigde libraries
+class foto:
+    
+    def saveResolutie(self, horizontaal, verticaal):
+        self.pixelsH = horizontaal
+        self.pixelsV = verticaal
+        
+        
+    def takePictures(self):
+        camera = picamera.PiCamera() #variable voor de camera
+        camera.resolution = (self.pixelsH, self.pixelsV)
+        #camera.hflip = rotatieHorizontaal
+        #camera.vflip = rotatieVerticaal
+        print(self.pixelsH + self.pixelsV)
+        #loop voor het maken van 6 burst fotos
+        for count in range (0 , 6):
+            #maak de foto en sla hem op volgens het pad
+            camera.capture('/home/pi/Downloads/'+str(count+1)+'.jpg')
+            #print dat de foto genomen is
+            print('picture ' + str(count+1) + ' taken!')
 
-fotoknop = Button(23) <-- Verander waar je de button hebt ingeplugd
-fotoknop.when_pressed = foto
-camera = picamera.PiCamera()
-camera.resolution = (400, 800)
-camera.vflip = True
-camera.start_preview()
-output = "foto/%d/%d.jpg" % (id, i) <-- Moet nog ff manier vinden om automatisch een map te maken
-
-    
-def foto():
-    
-    for i in range(0, 7):
-        camera.capture(output)
-        camera.stop_preview()
-        sleep(1)
-    
