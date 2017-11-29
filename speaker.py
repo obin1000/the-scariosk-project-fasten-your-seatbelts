@@ -1,10 +1,10 @@
 import os
+
 from time import sleep
 
-playMusic()
-
 def playMusic():
-
     sleep(1)
-    os.system('mpg123 -q Stemtest.mp3')
+    os.system('mpg123 Stemtest.mp3')
+
+playMusic()
 
