@@ -6,5 +6,5 @@ playMusic()
 def playMusic():
 
     sleep(1)
-    os.system('mpg123 -q ')
+    os.system('mpg123 -q Stemtest.mp3')
 
