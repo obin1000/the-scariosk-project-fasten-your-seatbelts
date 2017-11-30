@@ -1,4 +1,5 @@
 import sys
+#import time
 from PyQt5 import QtWidgets, QtGui
 
 class Window(QtWidgets.QWidget):
@@ -9,6 +10,8 @@ class Window(QtWidgets.QWidget):
 		self.init_ui()
 
 	def init_ui(self):
+		print('Scariosk wordt opgestart')
+		print('Live feed wordt laten zien')
 		self.b = QtWidgets.QPushButton('Take photo')
 		self.b1 = QtWidgets.QPushButton('New photo')
 		self.b1.hide()
@@ -25,7 +28,7 @@ class Window(QtWidgets.QWidget):
 		v_box.addLayout(h_box)
 
 		self.setLayout(v_box)
-		self.setWindowTitle('PyQt Lesson 5')
+		self.setWindowTitle('Scariosk photobooth')
 		self.setGeometry(150, 100, 350, 450)
 
 		self.b.clicked.connect(self.btn_click)
@@ -34,11 +37,13 @@ class Window(QtWidgets.QWidget):
 		self.show()
 
 	def btn_click(self):
+		print('Foto wordt gemaakt')
 		self.l.setPixmap(QtGui.QPixmap('Test.png'))
 		self.b.hide()
 		self.b1.show()
 
 	def btn_click1(self):
+		print('Live feed wordt laten zien')
 		self.l.setText('Take new photo')
 		self.b1.hide()
 		self.b.show()
