@@ -1,5 +1,5 @@
 import sys
-#import time
+import time
 from PyQt5 import QtWidgets, QtGui
 
 class Window(QtWidgets.QWidget):
@@ -38,7 +38,19 @@ class Window(QtWidgets.QWidget):
 
 	def btn_click(self):
 		print('Foto wordt gemaakt')
-		self.l.setPixmap(QtGui.QPixmap('Test.png'))
+		self.l.setText('Foto wordt gemaakt in')
+		time.sleep(1)
+		self.l.setText('5')
+		time.sleep(1)
+		self.l.setText('4')
+		time.sleep(1)
+		self.l.setText('3')
+		time.sleep(1)
+		self.l.setText('2')
+		time.sleep(1)
+		self.l.setText('1')
+		time.sleep(1)
+		#self.l.setPixmap(QtGui.QPixmap('Test.png'))
 		self.b.hide()
 		self.b1.show()
 
