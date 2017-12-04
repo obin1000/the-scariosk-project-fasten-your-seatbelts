@@ -11,16 +11,17 @@ class database:
             print('connection succes' + id + path)
             cur.execute("INSERT INTO fotodata  (fotoid,path) VALUES (%s,%s)", (id, path))
             conn.commit()
+
             
     def checkCode(self, code):
         conn = pymysql.connect('127.0.0.1','scariosk','veryscary','scariosk')
         cur = conn.cursor()
-        print(code)
         if conn:
             result = cur.execute("SELECT * FROM fotodata WHERE fotoid = (%s)", code)
-            conn.commit()
-            if result > 0:
-                return 0
+            data = cur.fetchall()
+                
+            if not data:
+                return True
             else:
-                return 1
+                return False
             
