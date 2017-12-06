@@ -1,20 +1,36 @@
-import picamera
+import picamera #import benodigde libraries
 class foto:
+    global camera
+    camera = picamera.PiCamera() # Variable voor camera object
+    path = '/home/pi/Pictures/'  # Standaart opslag locatie van de foto
+    pixelsH = 1920               # Horizontaal aantal pixels van de foto
+    pixelsV = 1080               # Verticaal aantal pixels van de foto
+    rotatieH = False
+    rotatieV = False
     
+    def savePath(self, pad):
+        global path
+        self.path = pad
+        
     def saveResolutie(self, horizontaal, verticaal):
+        global pixelsH
+        global pixelsV
         self.pixelsH = horizontaal
         self.pixelsV = verticaal
         
+    def saveRotation(self, horizontaal, verticaal):
+        global rotatieH
+        global rotatieV
+        self.rotatieH = horizontaal
+        self.rotatieV = verticaal
         
-    def takePictures(self):
-        camera = picamera.PiCamera()
+    def setupCamera(self):
         camera.resolution = (self.pixelsH, self.pixelsV)
-        #camera.hflip = rotatieHorizontaal
-        #camera.vflip = rotatieVerticaal
-        print(self.pixelsH + self.pixelsV)
-        #loop voor het maken van 6 burst fotos
-        for count in range (0 , 6):
-            camera.capture('/home/pi/Downloads/'+str(count+1)+'.jpg')
-            #print dat de foto genomen is
-            print('picture ' + str(count+1) + ' taken!')
-
+        camera.hflip = self.rotatieH
+        camera.vflip = self.rotatieV
+        
+    def takePictures(self, code, number):
+        #loop voor het maken van meerdere fotos
+        for count in range (0 , number):
+            camera.capture('{}{}{}.jpg'.format(self.path, code, count))
+            print('pic {}'.format(count))
