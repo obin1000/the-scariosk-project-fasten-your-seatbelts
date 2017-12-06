@@ -1,20 +1,27 @@
-#from camera import foto
-#from button import button
-from database import database
+#Imports geleend van andere mensen
+import time
+
+#Imports zelf gemaakt
+from camera import foto
+from gpio import gpio
+#from database import database
+#from randomCode import randomCode
 
 if __name__ == "__main__":
-    base = database()
-    if base.checkCode(69):
-        print('code vrij')
-    else:
-        print('code niet vrij')
+
+    #code = randomCode()
+    #print(code.generateCode())
+    #base = database()
+    knop = gpio()
+    maakFoto = foto()
     #base.insertData('69','lol/lal')
-    #knop = button()
-    #maakFoto = foto()
-    #maakFoto.saveResolutie(1920,1080)
-    #maakFoto.savePath('/home/pi/Documents/')
-    #while True:
-    #    if knop.triggerButton():
-    #        maakFoto.takePictures()
-    
+
+    maakFoto.savePath('/home/pi/Documents/')
+    maakFoto.saveResolutie(1920,1080)
+    maakFoto.saveRotation(True, True)
+    maakFoto.setupCamera()
+    while True:
+        if knop.triggerButton():
+            maakFoto.takePictures(1345,6)
+            time.sleep(1)  
     
