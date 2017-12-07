@@ -1,4 +1,7 @@
 import picamera #import benodigde libraries
+from threading import Thread
+from gpio import gpio
+
 class foto:
     global camera
     camera = picamera.PiCamera() # Variable voor camera object
@@ -32,5 +35,5 @@ class foto:
     def takePictures(self, code, number):
         #loop voor het maken van meerdere fotos
         for count in range (0 , number):
-            camera.capture('{}{}{}.jpg'.format(self.path, code, count))
-            print('pic {}'.format(count))
+            Thread(target = gpio().flits(0.5)).start()
+            Thread(target = camera.capture('{}{}{}.jpg'.format(self.path, code, count))).start()
