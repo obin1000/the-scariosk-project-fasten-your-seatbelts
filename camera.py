@@ -1,4 +1,5 @@
 import picamera #import benodigde libraries
+from gpio import gpio
 
 class foto:
     global camera
@@ -37,10 +38,13 @@ class foto:
         #camera.framerate = self.framerate
         
     def takePictures(self, code, number):
+        gpio().flitsAan()
         camera.capture_sequence([
             '{}{}{}.jpg'.format(self.path, code, count)
             for count in range(number)
             ], use_video_port=True)
+        gpio().flitsUit()
+        print('done')
             
             
             
