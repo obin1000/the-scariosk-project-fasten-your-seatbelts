@@ -1,4 +1,4 @@
 Gebruik crontab om de code te laten opstarten, is het makkelijkst
 sudo crontab -e
 Dit opent een file, voeg dit onderaan toe:
-@reboot /usr/bin/python /path/to/your/script.py
+@reboot /usr/bin/python3 /path/to/your/script.py
