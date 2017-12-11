@@ -1,5 +1,4 @@
 import RPi.GPIO as GPIO #Import library voor de pins op de raspberry pi
-import time
 
 class gpio:
     
@@ -13,10 +12,12 @@ class gpio:
         if GPIO.event_detected(12):
             return True
         
-    def flits(self,duur):
+    def flitsAan(self):
         GPIO.output(18,1)
-        time.sleep(duur)
+        
+    def flitsUit(self):
         GPIO.output(18,0)
+        
         
 
         
