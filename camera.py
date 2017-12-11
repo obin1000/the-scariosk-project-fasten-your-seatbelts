@@ -1,6 +1,4 @@
 import picamera #import benodigde libraries
-from threading import Thread
-from gpio import gpio
 
 class foto:
     global camera
@@ -10,10 +8,15 @@ class foto:
     pixelsV = 1080               # Verticaal aantal pixels van de foto
     rotatieH = False
     rotatieV = False
+#    framerate = 30
     
     def savePath(self, pad):
         global path
         self.path = pad
+        
+##    def savePath(self, frames):
+##        global framerate
+##        self.framerate = frames
         
     def saveResolutie(self, horizontaal, verticaal):
         global pixelsH
@@ -31,9 +34,13 @@ class foto:
         camera.resolution = (self.pixelsH, self.pixelsV)
         camera.hflip = self.rotatieH
         camera.vflip = self.rotatieV
+        #camera.framerate = self.framerate
         
     def takePictures(self, code, number):
-        #loop voor het maken van meerdere fotos
-        for count in range (0 , number):
-            Thread(target = gpio().flits(0.5)).start()
-            Thread(target = camera.capture('{}{}{}.jpg'.format(self.path, code, count))).start()
+        camera.capture_sequence([
+            '{}{}{}.jpg'.format(self.path, code, count)
+            for count in range(number)
+            ], use_video_port=True)
+            
+            
+            
