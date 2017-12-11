@@ -1,4 +1,10 @@
-Gebruik crontab om de code te laten opstarten, is het makkelijkst
+Gebruik crontab om de code te laten opstarten
 sudo crontab -e
 Dit opent een file, voeg dit onderaan toe:
 @reboot /usr/bin/python3 /path/to/your/script.py
+
+Alternatief
+Run bij het inloggen de file
+sudo nano /etc/profile
+Opent een file, voeg dit onderaan toe:
+sudo python3 /path/to/your/script.py
