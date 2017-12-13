@@ -1,6 +1,7 @@
 #Installleer de volgende dingen:
-#sudo apt-get install python-pip
+#sudo apt install python-pip
 #sudo pip3 install PyMySQL
+#suco apt install mysql-server 
 import pymysql
 class database:
 
