@@ -1,3 +1,5 @@
+# sudo apt install python3-picamera
+# sudo apt install python-picamera
 import picamera #import benodigde libraries
 from gpio import gpio
 
