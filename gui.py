@@ -25,7 +25,7 @@ def countDown1(self):
     een = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
     een.pack()
     een.configure(background="white")
-    een.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "1.... en nu komt het....")
+    een.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "1....")
 
 def beginDia(self):
     tekst = Canvas(windows,highlightthickness = 0, width = 800, height = 30)
