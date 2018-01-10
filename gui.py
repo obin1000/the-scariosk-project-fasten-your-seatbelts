@@ -1,34 +1,29 @@
-from tkinter import Tk, BOTH
-from tkinter.ttk import Frame, Button, Style
+from tkinter import *
+def quit(self):
+    windows.destroy()
+windows = Tk()
+windows.title('Scariosk')
+windows.geometry("800x400")
+windows.configure(background="white")
+windows.attributes('-fullscreen', True)
+windows.bind("q", quit)
 
-class Example(Frame):
-  
-    def __init__(self):
-        super().__init__()   
-         
-        self.initUI()
-        
-        
-    def initUI(self):
-        
-        self.style = Style()
-        self.style.theme_use("default")
-      
-        self.master.title("Quit button")
-        self.pack(fill=BOTH, expand=1)
-
-        quitButton = Button(self, text="Quit",
-            command=self.quit)
-        quitButton.place(x=50, y=50)
-
-
-def main():
-  
-    root = Tk()
-    root.geometry("1920x1080")
-    app = Example()
-    root.mainloop()  
+tekst = Canvas(windows,highlightthickness = 0, width = 800, height = 30)
+canvas = Canvas(windows,highlightthickness = 0, width = 800, height = 200)
+canvas2 = Canvas(windows,highlightthickness = 0, width = 800, height = 200)
+canvas.pack()
+tekst.pack()
+canvas2.pack()
+canvas.configure(background="white")
+tekst.configure(background = "white")
+canvas2.configure(background="white")
+corendon = PhotoImage(file = 'don.gif')
+arrow = PhotoImage(file = 'arrow.gif')
+corendon = corendon.subsample(3,3)
+arrow = arrow.subsample(3,3)
+tekst.create_text(400, 0, anchor = N, font = "Helvetica 20", fill = "darkred", text = "Druk op de knop")
+canvas2.create_image(400,-80,anchor = N, image = arrow)
+canvas.create_image(400,0,anchor = N, image = corendon)
 
 
-if __name__ == '__main__':
-    main()
+windows.mainloop()
