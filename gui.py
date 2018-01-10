@@ -10,21 +10,22 @@ windows.attributes('-fullscreen', True)
 windows.bind("q", quit)
     
 def countDown3(self):
-    drie = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
+    drie = Canvas(windows,highlightthickness = 0, width = 800, height = 400)
     drie.pack()
-    drie.configure(background="white")
-    drie.create_text(400, 200, achter = N, font = "Helvetica 40", fill = "darkred", text = "3....")
+    drie.configure(background = "white")
+    drie.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "3....")
     
 def countDown2(self):
     twee = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
     twee.pack()
     twee.configure(background="white")
-    twee.create_text(400, 200, achter = N, font = "Helvetica 40", fill = "darkred", text = "2....")
+    twee.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "2....")
+    
 def countDown1(self):
     een = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
     een.pack()
     een.configure(background="white")
-    een.create_text(400, 200, achter = N, font = "Helvetica 40", fill = "darkred", text = "1.... en nu komt het....")
+    een.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "1.... en nu komt het....")
 
 def beginDia(self):
     tekst = Canvas(windows,highlightthickness = 0, width = 800, height = 30)
