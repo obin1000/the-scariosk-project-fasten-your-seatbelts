@@ -40,7 +40,7 @@ een.pack()
 een.configure(background="white")
 een.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "Smile!!")
 
-def switchThreeToTwo(self):
+def loop(self):
 	if (frame3.isgridded):
 		frame3.grid_forget()
 		frame3.isgridded = False
