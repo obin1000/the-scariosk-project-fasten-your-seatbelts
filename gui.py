@@ -10,33 +10,43 @@ windows.attributes('-fullscreen', True)
 windows.bind("q", quit)
     
 def countdown3(self):
-    drie = Canvas(windows,highlightthickness = 0, width = 800, height = 400)
+    frame3 = Frame(windows)
+    frame3.grid()
+    drie = Canvas(frame3, highlightthickness = 0, width = 800, height = 400)
     drie.pack()
     drie.configure(background = "white")
-    drie.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "3....")
+    drie.create_text(700, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "3....")
     
 def countdown2(self):
-    twee = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
+    frame2 = Frame(windows)
+    frame2.grid()
+    twee = Canvas(frame2, highlightthickness = 0, width = 800, height = 400)
     twee.pack()
     twee.configure(background="white")
     twee.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "2....")
     
 def countdown1(self):
-    een = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
+    frame1 = Frame(windows)
+    frame1.grid()
+    een = Canvas(frame1, highlightthickness = 0, width = 800, height = 400)
     een.pack()
     een.configure(background="white")
     een.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "1....")
     
 def countdownGo(self):
-    een = Canvas(windows, highlightthickness = 0, width = 800, height = 400)
+    frameGo = Frame(windows)
+    frameGp.grid()
+    een = Canvas(frameGo, highlightthickness = 0, width = 800, height = 400)
     een.pack()
     een.configure(background="white")
     een.create_text(350, 125, achter = N, font = "Helvetica 70", fill = "darkred", text = "Smile!!")
 
 def beginDia(self):
-    tekst = Canvas(windows,highlightthickness = 0, width = 800, height = 30)
-    canvas = Canvas(windows,highlightthickness = 0, width = 800, height = 200)
-    canvas2 = Canvas(windows,highlightthickness = 0, width = 800, height = 200)
+    frameBegin = Frame(windows)
+    frameBegin.grid()
+    tekst = Canvas(frameBegin,highlightthickness = 0, width = 800, height = 30)
+    canvas = Canvas(frameBegin,highlightthickness = 0, width = 800, height = 200)
+    canvas2 = Canvas(frameBegin,highlightthickness = 0, width = 800, height = 200)
     canvas.pack()
     tekst.pack()
     canvas2.pack()
