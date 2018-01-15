@@ -1,3 +1,6 @@
+##Maak alvast triggerButton methodes, 3x if condities gebruiken: van dia 1 naar dia2, van dia2 naar dia3, van dia3 naar dia 4
+##Bij dia 3 gaat camera aan, wordt aangetoond met camera.start_preview() en camera.stop_preview(). We gebruiken ook time.sleep(werkt wel hier aangezien t een input is)
+
 from tkinter import *
 import time
 
