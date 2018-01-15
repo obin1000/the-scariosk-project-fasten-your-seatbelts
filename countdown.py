@@ -28,6 +28,18 @@ test1 = Label(windows, image=test)
 def change(self):
 	test.place_forget()
 	test1.place(x=0,y=0)
+	
+def change2(self):
+	test.place_forget()
+	test1.place(x=0,y=0)
+	
+def change3(self):
+	test.place_forget()
+	test1.place(x=0,y=0)
+	
+def repeat(self):
+	test.place_forget()
+	test1.place(x=0,y=0)
 
 windows.bind("1", change)
 
