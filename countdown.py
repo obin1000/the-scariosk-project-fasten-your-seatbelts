@@ -18,13 +18,13 @@ corendon = PhotoImage(file = 'scariosk.gif')
 test = PhotoImage(file = 'test.gif')
 ##canvas.create_image(0, 0, image = corendon, anchor = NW)
 frameBegin.grid()
-testok = Label(windows, image=corendon)
-testok.place(x=0,y=0)
-tello = Label(windows, image=test)
+test = Label(windows, image=corendon)
+test.place(x=0,y=0)
+test1 = Label(windows, image=test)
 
 def change(self):
-	testok.place_forget()
-	tello.place(x=0,y=0)
+	test.place_forget()
+	test1.place(x=0,y=0)
 
 windows.bind("1", change)
 
