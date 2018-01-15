@@ -4,34 +4,31 @@ import time
 windows = Tk()
 windows.title('Scariosk')
 windows.geometry("800x400")
-windows.configure(background="white")
+windows.configure(background="black")
 windows.attributes('-fullscreen', True)
 windows.bind("q", quit)
 
 def quit(self):
     windows.destroy()
-    
-frame3 = Frame(windows)
-frame3.grid()
-frame3.isgridded = True
-drie = Canvas(frame3, highlightthickness = 0, width = 800, height = 400)
-drie.pack()
-drie.configure(background = "white")
-drie.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "3....")
 
-frame2 = Frame(windows)
-frame2.isgridded = False
-twee = Canvas(frame2, highlightthickness = 0, width = 800, height = 400)
-twee.pack()
-twee.configure(background="white")
-twee.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "2....")
+frameBegin = Frame(windows)
+canvas = Canvas(frameBegin,highlightthickness = 0, width = 800, height = 400)
+canvas.pack
+corendon = PhotoImage(file = 'scariosk.gif')
+test = PhotoImage(file = 'test.gif')
+##canvas.create_image(0, 0, image = corendon, anchor = NW)
+frameBegin.grid()
+testok = Label(windows, image=corendon)
+testok.place(x=0,y=0)
+tello = Label(windows, image=test)
 
-frame1 = Frame(windows)
-frame1.isgridded = False
-een = Canvas(frame1, highlightthickness = 0, width = 800, height = 400)
-een.pack()
-een.configure(background="white")
-een.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "1....")
+def change(self):
+	testok.place_forget()
+	tello.place(x=0,y=0)
+
+windows.bind("1", change)
+
+windows.mainloop()
 
 frameGo = Frame(windows)
 frameGo.isgridded = False
