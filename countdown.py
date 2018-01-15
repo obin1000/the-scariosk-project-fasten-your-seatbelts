@@ -29,22 +29,3 @@ def change(self):
 windows.bind("1", change)
 
 windows.mainloop()
-
-frameGo = Frame(windows)
-frameGo.isgridded = False
-een = Canvas(frameGo, highlightthickness = 0, width = 800, height = 400)
-een.pack()
-een.configure(background="white")
-een.create_text(350, 125, anchor = N, font = "Helvetica 70", fill = "darkred", text = "Smile!!")
-
-def loop(self):
-	if (frame3.isgridded):
-		frame3.grid_forget()
-		frame3.isgridded = False
-		frame2.isgridded = True
-		frame2.grid()
-
-windows.bind("3", loop)
-
-
-windows.mainloop()
