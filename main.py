@@ -1,29 +1,48 @@
-#Imports geleend van andere mensen
+#Imports geleend van anderen
 import time
-#from threading import Thread
+import pygame
 
 #Imports zelf gemaakt
 from camera import foto
 from gpio import gpio
 from database import database
 from randomCode import randomCode
+from gui import gui
 
 if __name__ == "__main__":
     
-    path = '/home/pi/Documents/'
+    path = '/home/pi/Fotos/'
     base = database()
-    iobord = gpio()
-    maakFoto = foto()
+    io = gpio()
+    cam = foto()
+    ui =gui()
     
-    maakFoto.savePath(path)
-    maakFoto.saveResolutie(1920,1080)
-    maakFoto.saveRotation(False,False)
-    maakFoto.setupCamera()
+    ui.windows.mainloop()
+    
+    pygame.mixer.init()
+    pygame.mixer.music.load("media/part1.mp3")
+    
+    cam.savePath(path)
+    cam.saveResolutie(1920,1080)
+    cam.saveRotation(False,False)
+    cam.saveFramerate(10)
+    cam.setupCamera()
+
+    io.motorPause()
+    io.flitsUit()
     
     while True:
-        if iobord.triggerButton():
+        time.sleep(2)
+        if io.triggerButton():
             code = randomCode().generateCode()
-            maakFoto.takePictures(code,6)
-            base.insertData(code,(path + str(code)))
-        time.sleep(1)
-    #Thread(target = ).start()
+            io.flitsAan()
+            io.motorLanseer()
+            time.sleep(0.5)
+            pygame.mixer.music.play()
+            cam.takePictures(code,6)
+            io.flitsUit()
+            io.motorReset()
+            time.sleep(1)
+            io.motorPause()
+            base.insertData(code,(path + str(code) + '.jpg'))
+            time.sleep(2)
