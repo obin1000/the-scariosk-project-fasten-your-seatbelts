@@ -2,6 +2,7 @@
 # sudo apt install python-picamera
 import picamera #import benodigde libraries
 from gpio import gpio
+from time import sleep;
 
 class foto:
     global camera
@@ -11,15 +12,15 @@ class foto:
     pixelsV = 1080               # Verticaal aantal pixels van de foto
     rotatieH = False
     rotatieV = False
-#    framerate = 30
+    framerate = 10
     
     def savePath(self, pad):
         global path
         self.path = pad
         
-##    def savePath(self, frames):
-##        global framerate
-##        self.framerate = frames
+    def saveFramerate(self, frames):
+        global framerate
+        self.framerate = frames
         
     def saveResolutie(self, horizontaal, verticaal):
         global pixelsH
@@ -37,15 +38,22 @@ class foto:
         camera.resolution = (self.pixelsH, self.pixelsV)
         camera.hflip = self.rotatieH
         camera.vflip = self.rotatieV
-        #camera.framerate = self.framerate
+        camera.framerate = self.framerate
+        
+    def liveStart(self):
+        camera.start_preview()
+        
+        
+    def liveStop(self):
+        camera.stop_preview()
+        
         
     def takePictures(self, code, number):
-        gpio().flitsAan()
+        print('start')
         camera.capture_sequence([
             '{}{}{}.jpg'.format(self.path, code, count)
             for count in range(number)
             ], use_video_port=True)
-        gpio().flitsUit()
         print('done')
             
             
