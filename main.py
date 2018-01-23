@@ -77,6 +77,7 @@ windows.title('Scariosk')
 windows.geometry("800x480")
 windows.configure(background="black")
 windows.attributes('-fullscreen', True)
+windows.config(cursor='none')
 
 
 f1 = Frame(windows)
