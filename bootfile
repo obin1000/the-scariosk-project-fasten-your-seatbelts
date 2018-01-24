@@ -1,10 +1,17 @@
 1. Opened terminal
-2. Typed sudo nano /home/pi/launcher.sh
+2. Typed sudo nano /home/pi/Scariosk/scariosklauncher.sh
 3. input the lines:
-Code: Select all
+
 
 #!/bin/sh
-sudo python /home/pi/Desktop/testGUI.py
+# scariosklauncher.sh
+# navigate to home directory, then to this directory, then execute python script, then back home
+
+cd /
+cd home/pi/Scariosk
+sudo python3 main.py
+cd /
+
 4. ctrl x, y, enter.
 5. in terminal, type cd /home/pi
 6. type chmod 755 launcher.sh
@@ -12,6 +19,6 @@ sudo python /home/pi/Desktop/testGUI.py
 8. input this into the bottom of the file
 Code: Select all
 
-@sh /home/pi/launcher.sh
+@sh /home/pi/Scariosk/scariosklauncher.sh
 9. ctrl x, y, enter.
 10. sudo reboot
